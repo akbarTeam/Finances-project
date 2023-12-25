@@ -57,6 +57,7 @@ Route::middleware([UserAuth::class])->group(function(){
         // this is the People Section
         Route::get('showPeople', [Admin::class, 'ShowPeople'])->name('Show.People');
         Route::post('storePeople', [Admin::class, 'StorePeople'])->name('store.people');
+        Route::put('update-people/{id}',[Admin::class , 'updatepeople'])->name('update.people');
 
     });
 

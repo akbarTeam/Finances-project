@@ -11,7 +11,7 @@ class People extends Model
     use HasFactory;
     protected $table = 'peoples';
     protected $fillable =[
-        'person_id',
+        'id',
         'first_name',
         'last_name',
         'father_name',

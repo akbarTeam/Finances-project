@@ -281,6 +281,29 @@ class Admin extends Controller
         }
 
     }
+
+    // this is Function for update people
+    public function updatepeople(Request  $request , $id)
+    {
+        $peoples= People::find($id);
+        $peoples->id = $request->id;
+        $peoples->first_name = $request->first_name;
+        $peoples->last_name = $request->last_name;
+        $peoples->father_name = $request->father_name;
+        $peoples->administraion_name = $request->administraion_name;
+        $peoples->direction_name = $request->direction_name;
+        $peoples->rank = $request->rank;
+        $peoples->address = $request->address;
+        $peoples->phone_number = $request->phone_number;
+        $peoples->save();
+        if($peoples)
+        {
+            return redirect()->back()->with('success', 'Person Updated Successfuly');
+        }else{
+            return redirect()->back()->with('error', 'Ooops! plase check your intenet connection! Try agin');
+        }
+
+    }
     /**
      * Display the specified resource.
      */

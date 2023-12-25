@@ -153,7 +153,7 @@
                                 <tbody>
                                     @foreach ($peoples as $data)
                                         <tr>
-                                            <td class="text-center">{{ $data->person_id }}</td>
+                                            <td class="text-center">{{ $data->id }}</td>
                                             <td class="text-center"> {{ $data->first_name }} </td>
                                             <td class="center">{{ $data->last_name }}</td>
                                             <td class="center">{{ $data->father_name }} </td>
@@ -174,7 +174,7 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="formModal">Update Expenses
+                                                                <h5 class="modal-title" id="formModal">Update Persone
                                                                 </h5>
                                                                 <button type="button" class="close"
                                                                     data-dismiss="modal" aria-label="Close">
@@ -183,17 +183,17 @@
                                                             </div>
                                                             <div class="modal-body text-left">
                                                                 <form method="POST" id="edit-forms{{ $data->id }}"
-                                                                    action="#"
+                                                                    action="{{ route('update.people', ['id'=>$data->id ]) }}"
                                                                     enctype="multipart/form-data"
                                                                     onsubmit=" return validateBudget({{ $data->id }})">
                                                                     @method('PUT')
                                                                     @csrf
-                                                                    <label for="person_id">person_id</label>
+                                                                    <label for="id">id</label>
                                                                     <div class="form-group">
                                                                         <div class="form-line">
-                                                                            <input type="number" id="person_id"
+                                                                            <input type="number" id="id"
                                                                                 name="id" class="form-control"
-                                                                                value="{{ $data->person_id }}"
+                                                                                value="{{ $data->id }}"
                                                                                 placeholder="Enter your Person ID ">
                                                                         </div>
                                                                         <div class="text-danger"
